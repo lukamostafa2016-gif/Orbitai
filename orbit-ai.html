@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ORBIT AI Creator</title>
+<style>
+body{margin:0;background:#080b18;color:white;font-family:Arial,sans-serif}
+header{padding:22px;background:#11172b}
+h1{color:#a78bfa}
+main{max-width:700px;margin:auto;padding:20px}
+.tools{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+button{background:#1b2340;color:white;border:1px solid #65709b;border-radius:12px;padding:15px;font-size:16px}
+input{width:65%;padding:13px;border-radius:10px;background:#11172b;color:white;border:1px solid #65709b}
+#chat{background:#11172b;border-radius:15px;padding:16px;margin-top:20px}
+</style>
+</head>
+<body>
+<header><h1>✦ ORBIT AI</h1><p>Your creative universe</p></header>
+<main>
+<h2>What shall we create?</h2>
+<div class="tools">
+<button onclick="pick('Game Creator')">🎮 Game Creator</button>
+<button onclick="pick('Code Creator')">💻 Code Creator</button>
+<button onclick="pick('Image Creator')">🎨 Image Creator</button>
+<button onclick="pick('Video Creator')">🎬 Video Creator</button>
+</div>
+<div id="chat">
+<h3>🤖 ORBIT AI</h3>
+<p id="message">Welcome! Choose a creator tool.</p>
+<input id="idea" placeholder="Describe your idea">
+<button onclick="send()">Send</button>
+</div>
+</main>
+<script>
+let mode="AI Assistant";
+function pick(name){
+mode=name;
+document.getElementById("message").textContent=name+" selected! Type your idea below.";
+}
+function send(){
+let idea=document.getElementById("idea").value.trim();
+if(!idea)return;
+document.getElementById("message").textContent="Your "+mode+" request: "+idea+". The interface works; the real online AI still needs a secure connection.";
+document.getElementById("idea").value="";
+}
+</script>
+</body>
+</html>
